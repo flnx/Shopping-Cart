@@ -1,0 +1,32 @@
+.navbar {
+    background: #271E04;
+    padding: 1rem 0;
+}
+
+.links {
+    margin: 0 auto;
+    width: 90%;
+    max-width: 1600px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 2rem; 
+}
+
+.links a {
+    font-size: 2rem;
+    font-weight: bold;
+    transition: all 0.1s ease-in-out;
+}
+
+.links a:hover {
+    transform: scale(1.05);
+}
+
+.cart {
+    display: block;
+}
+
+.active {
+    color: #B88053;
+}
