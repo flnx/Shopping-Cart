@@ -1,19 +1,18 @@
 import styles from './Shop.module.css';
 import { Item } from './Item';
+import { useContext } from 'react';
+import { ShopContext } from '../../context/ShoppingContext';
 
 export default function Shop() {
+    const { products, cartData } = useContext(ShopContext);
+
+    console.log(cartData);
+
     return (
         <div className={styles.wrapper}>
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
+            {products.map((x) => (
+                <Item {...x} key={x._id} />
+            ))}
         </div>
     );
 }

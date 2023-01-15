@@ -1,7 +1,13 @@
 import { CartItem } from './CartItem';
 import styles from './Cart.module.css';
+import { useContext } from 'react';
+import { ShopContext } from '../../context/ShoppingContext';
 
 export const Cart = () => {
+    const { cartData } = useContext(ShopContext);
+
+    console.log(cartData);
+
     return (
         <section className={styles.cart}>
             <h1>Your Cart Items</h1>
