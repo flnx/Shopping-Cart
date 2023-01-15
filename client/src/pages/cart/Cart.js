@@ -3,11 +3,10 @@ import styles from './Cart.module.css';
 
 export const Cart = () => {
     return (
-        <div className={styles.cart}>
+        <section className={styles.cart}>
+            <h1>Your Cart Items</h1>
             <div>
-                <h1>Your Cart Items</h1>
-            </div>
-            <div className={styles.cart}>
+                <CartItem />
                 <CartItem />
             </div>
 
@@ -18,6 +17,6 @@ export const Cart = () => {
             </div>
 
             <h1> Your Shopping Cart is Empty</h1>
-        </div>
+        </section>
     );
 };

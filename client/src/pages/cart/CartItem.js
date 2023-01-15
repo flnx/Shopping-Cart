@@ -3,14 +3,12 @@ import styles from './Cart.module.css';
 
 export const CartItem = () => {
     return (
-        <div className={styles.cartItem}>
+        <div className={styles.item}>
             <img src={images[Math.floor(Math.random() * 8) + 1]} alt="iPhone" />
             <div className={styles.description}>
-                <p>
-                    <b>iPhone</b>
-                </p>
-                <p> Price: $5000</p>
-                <div className={styles.countHandler}>
+                <p>iPhone</p>
+                <span> Price: $5000</span>
+                <div className={styles.counter}>
                     <button> - </button>
                     <input defaultValue="500" />
                     <button> + </button>
