@@ -12,7 +12,7 @@ export const Navbar = () => {
                     Shop
                 </NavLink>
                 <NavLink to="cart" className={isActive}>
-                    <ShoppingCart className={styles.cart} size={50} />
+                    <ShoppingCart className={styles.cart} size={40} />
                 </NavLink>
             </div>
         </nav>

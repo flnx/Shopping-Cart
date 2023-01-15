@@ -14,11 +14,6 @@ export default function Shop() {
             <Item />
             <Item />
             <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
         </div>
     );
 }
