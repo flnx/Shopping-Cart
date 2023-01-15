@@ -4,7 +4,9 @@ import { useContext } from 'react';
 import { ShopContext } from '../../context/ShoppingContext';
 
 export const Item = ({ _id, productName, price, imageUrl }) => {
-    const { addToCart } = useContext(ShopContext);
+    const { addToCart, getItemsInCartById } = useContext(ShopContext);
+
+    const counter = getItemsInCartById(_id);
 
     const cartHandler = (e) => {
         e.preventDefault();
@@ -23,7 +25,7 @@ export const Item = ({ _id, productName, price, imageUrl }) => {
                     className={styles.btn}
                     onClick={cartHandler}
                 >
-                    Add To Cart
+                    Add To Cart ({counter})
                 </button>
             </div>
         </div>

@@ -6,8 +6,6 @@ import { ShopContext } from '../../context/ShoppingContext';
 export default function Shop() {
     const { products, cartData } = useContext(ShopContext);
 
-    console.log(cartData);
-
     return (
         <div className={styles.wrapper}>
             {products.map((x) => (

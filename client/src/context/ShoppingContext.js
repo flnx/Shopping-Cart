@@ -16,22 +16,25 @@ export const ShoppingContextProvider = (props) => {
     }, [cartData]);
 
     const addToCart = (newItem) => {
-        const upd = cartData.map((x) => ({ ...x }));
-        const find = upd.find((x) => x._id === newItem._id);
+        const newState = [...cartData];
+        const itemInCart = newState.find((x) => x._id === newItem._id);
 
-        if (find) {
-            find.counter += 1;
-        } else {
-            upd.push(newItem);
-        }
+        itemInCart ? itemInCart.counter++ : newState.push(newItem);
 
-        setCartData(() => upd);
+        setCartData(() => newState);
+    };
+
+    const getItemsInCartById = (id) => {
+        const cartItem = cartData.find((x) => x._id == id);
+        
+        return cartItem ? cartItem.counter : 0;
     };
 
     const ctx = {
         addToCart,
         products,
         cartData,
+        getItemsInCartById,
     };
 
     return (

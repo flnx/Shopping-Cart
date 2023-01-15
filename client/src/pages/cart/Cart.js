@@ -6,7 +6,6 @@ import { ShopContext } from '../../context/ShoppingContext';
 export const Cart = () => {
     const { cartData } = useContext(ShopContext);
 
-    console.log(cartData);
 
     return (
         <section className={styles.cart}>
