@@ -32,6 +32,10 @@ export const ShoppingContextProvider = (props) => {
         );
     };
 
+    const emptyCartOnCheckOut = () => {
+        setCartData(() => []);
+    }
+
     const updateCounter = (value, id) => {
         if (Number.isInteger(value) == false || value < 0) return
 
@@ -55,6 +59,7 @@ export const ShoppingContextProvider = (props) => {
         checkProductCounter,
         updateCounter,
         removeFromCart,
+        emptyCartOnCheckOut
     };
 
     return (
