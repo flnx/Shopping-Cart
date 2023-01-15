@@ -27,22 +27,24 @@ export const ShoppingContextProvider = (props) => {
     const removeFromCart = (id) => {
         setCartData((state) =>
             state
-                .map((x) => (x._id == id ? { ...x, counter: x.counter - 1 } : x))
+                .map((x) => x._id == id ? { ...x, counter: x.counter - 1 } : x)
                 .filter((x) => x.counter > 0)
         );
     };
 
-    const updateCounter = (newCounterValue, id) => {
+    const updateCounter = (value, id) => {
+        if (Number.isInteger(value) == false || value < 0) return
+
         setCartData((state) =>
-            state.map((x) =>
-                x._id == id ? { ...x, counter: newCounterValue } : x
-            )
+            state
+                .map((x) => (x._id == id ? { ...x, counter: value } : x))
+                .filter((x) => x.counter != 0)
         );
     };
 
     const checkProductCounter = (id) => {
         const cartItem = cartData.find((x) => x._id == id);
-
+        
         return cartItem ? cartItem.counter : 0;
     };
 

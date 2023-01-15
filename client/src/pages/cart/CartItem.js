@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { ShopContext } from '../../context/ShoppingContext';
 import { images } from '../../utils/importPictures';
 
