@@ -7,6 +7,11 @@ import { ShopContext } from '../../context/ShoppingContext';
 export const Cart = () => {
     const { cartData } = useContext(ShopContext);
 
+    const totalSum = cartData.reduce(
+        (acc, item) => acc + item.counter * item.price,
+        0
+    );
+
     const navigate = useNavigate();
 
     return (
@@ -19,7 +24,7 @@ export const Cart = () => {
             </div>
 
             <div className={styles.checkout}>
-                <p> Subtotal: $4000 </p>
+                <p> Subtotal: ${totalSum.toFixed(2)} </p>
                 <button onClick={() => navigate('/')}>Continue Shopping</button>
                 <button>Checkout</button>
             </div>
