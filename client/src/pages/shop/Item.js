@@ -4,9 +4,8 @@ import { useContext } from 'react';
 import { ShopContext } from '../../context/ShoppingContext';
 
 export const Item = ({ _id, productName, price, imageUrl }) => {
-    const { addToCart, getItemsInCartById } = useContext(ShopContext);
-
-    const counter = getItemsInCartById(_id);
+    const { addToCart, checkProductCounter } = useContext(ShopContext);
+    const counter = checkProductCounter(_id);
 
     const cartHandler = (e) => {
         e.preventDefault();

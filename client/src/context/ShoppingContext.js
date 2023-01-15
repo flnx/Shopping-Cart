@@ -24,9 +24,25 @@ export const ShoppingContextProvider = (props) => {
         setCartData(() => newState);
     };
 
-    const getItemsInCartById = (id) => {
+    const removeFromCart = (id) => {
+        setCartData((state) =>
+            state
+                .map((x) => (x._id == id ? { ...x, counter: x.counter - 1 } : x))
+                .filter((x) => x.counter > 0)
+        );
+    };
+
+    const updateCounter = (newCounterValue, id) => {
+        setCartData((state) =>
+            state.map((x) =>
+                x._id == id ? { ...x, counter: newCounterValue } : x
+            )
+        );
+    };
+
+    const checkProductCounter = (id) => {
         const cartItem = cartData.find((x) => x._id == id);
-        
+
         return cartItem ? cartItem.counter : 0;
     };
 
@@ -34,7 +50,9 @@ export const ShoppingContextProvider = (props) => {
         addToCart,
         products,
         cartData,
-        getItemsInCartById,
+        checkProductCounter,
+        updateCounter,
+        removeFromCart,
     };
 
     return (

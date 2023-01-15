@@ -6,13 +6,13 @@ import { ShopContext } from '../../context/ShoppingContext';
 export const Cart = () => {
     const { cartData } = useContext(ShopContext);
 
-
     return (
         <section className={styles.cart}>
             <h1>Your Cart Items</h1>
             <div>
-                <CartItem />
-                <CartItem />
+                {cartData.map((x) => (
+                    <CartItem {...x} key={x._id} />
+                ))}
             </div>
 
             <div className={styles.checkout}>
